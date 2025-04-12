@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'Inter';
+    src: url(../assets/fonts/Inter/Inter-VariableFont_opszwght.ttf);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    margin: 96px 0px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content-1 {
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 62px;
+    letter-spacing: -2px;    
+}
+
+.content-2 {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0px;
+    columns: #52525B;
+}
+
+.row.g-3 {
+    width: 526px;
+    height: 258px;
+    margin: auto;
+    padding-top: 162.5px;
+}
+
+.form-check-label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.forgotPass ,.register{
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.ask-sign {
+    text-align: center;
+}
+
+.btn.btn-primary {
+    width: 100%;
+}
+
+.toast {
+    max-width: 350px;
+    height: 91px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.toast .toast-header {
+    border-bottom: none; 
+    padding: 0 16px; 
+    margin-top: 16px;
+    background-color: #333E5A;
+}
+
+.me-2 {
+    width: 18px; 
+    height: 18px;
+}
+
+.toast .btn-close {
+    background-image: url(../assets/icons/Vector.png);
+}   
+
+@media screen and (max-width: 768px){
+
+    .content-1::after {
+        content: " tài khoản";
+    }
+
+    .content-1, .content-2{
+        margin: auto;
+    }
+}
+

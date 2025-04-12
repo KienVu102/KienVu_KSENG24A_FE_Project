@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="containerHome">
+        <div class="header">
+            <input type="search" id="search" placeholder="Tìm kiếm" class="search">
+
+            <div class="link">
+                <a href="../pages/dashboard.html" class="dash" style="color: black;"><b>Trang chủ</b></a>
+                <a href="../pages/subject-manager.html" class="subject">Môn học</a>
+                <a href="../pages/lesson-manager.html" class="lesson">Bài học</a>
+            </div>
+
+            <div class="icons">
+                <img src="../assets/icons/Favorites.png" alt="" class="heart">
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        style="padding: 0; width: 32px; height: 32px; border: none; background-color: #FFFFFF;">
+                        <img src="../assets/icons/User.png" alt="" class="user">
+                    </button>
+                    <ul class="dropdown-menu exit" style="width: 100px; min-height: 35px; padding: 0; align-items: center;
+                        justify-content: center;">
+                        <li><a class="dropdown-item exit-item" href="../pages/login.html">Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="products">
+            <div class="all-com-un">
+                <a href="" class="all" style="color: black; font-weight: 600;">Tất cả các môn học</a>
+                <a href="" class="com">Đã hoàn thành</a>
+                <a href="" class="un">Chưa hoàn thành</a>
+            </div>
+
+            <div class="frame-1">
+                <ul class="box-html">
+                    <p>HTML cơ bản</p>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 01: Tổng quan về HTML</li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 02: Thẻ Inline và Block</li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 03: Thẻ hình ảnh </li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 04: Thẻ chuyển trang</li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 05: Thẻ Semantic</li>
+                    <p style="text-align: center;">Xem thêm</p>
+                </ul>
+
+                <ul class="box-css">
+                    <p>CSS cơ bản</p>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 01: Tổng quan về CSS </li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 02: Nhúng CSS vào trang Web</li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 03: Position</li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 04: Flexbox</li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 05: Animation </li>
+                    <p style="text-align: center;">Xem thêm</p>
+                </ul>
+
+                <ul class="box-js">
+                    <p>Javascript cơ bản</p>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 01: Tổng quan ngôn ngữ JavaScript</li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 02: Khai báo biến</li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 03: Câu lệnh điều kiện</li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 04: Vòng lặp </li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 05: Mảng</li>
+                    <p style="text-align: center;">Xem thêm</p>
+                </ul>
+            </div>
+
+            <div class="frame-2">
+                <ul class="box-rjs">
+                    <p>Lập trình với React.js</p>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 01: Tổng quan về React.js </li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 02: Props, State, Event </li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 03: React hook </li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 04: UI Framework</li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 05: React Router </li>
+                    <p style="text-align: center;">Xem thêm</p>
+                </ul>
+
+                <ul class="box-java">
+                    <p>Lập trình với Java</p>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 01: Tổng quan về ngôn ngữ Java</li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 02: Khai báo biến </li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 03: Câu lệnh điều kiện </li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 04: Vòng lặp </li>
+                    <li><img src="../assets/icons/circle-ok.png" alt=""> Session 05: Mảng</li>
+                    <p style="text-align: center;">Xem thêm</p>
+                </ul>
+
+                <ul class="box-c">
+                    <p>Lập trình C</p>
+                    <p>Chưa có bài học nào</p>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="info">
+                <div class="text-footer">Chúng tôi cung cấp giải pháp học tập, giúp học sinh và viên học tập tốt hơn và
+                    hiệu
+                    quả hơn.</div>
+
+                <div class="list">
+                    <section>
+                        <p style="margin: 0; color: #FFFFFF; font-size: 16px;">Danh mục</p>
+                        <p style="font-size: 14px;">Môn học</p>
+                        <p style="font-size: 14px;">Bài học</p>
+                        <p style="font-size: 14px;">Ghi chú</p>
+                    </section>
+                </div>
+
+                <div class="sp">
+                    <section>
+                        <p style="margin: 0; color: #FFFFFF; font-size: 16px;">Hỗ trợ khách hàng</p>
+                        <p style="font-size: 14px;">Tìm kiếm dịch vụ</p>
+                        <p style="font-size: 14px;">Điều khoản sử dụng</p>
+                        <p style="font-size: 14px;">Chính sách và điều khoản</p>
+                    </section>
+                </div>
+            </div>
+            <div class="social-icons">
+                <img src="../assets/icons/Twitter.png" alt="">
+                <img src="../assets/icons/Facebook.png" alt="">
+                <img src="../assets/icons/Tiktok.png" alt="">
+                <img src="../assets/icons/Instagram.png" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

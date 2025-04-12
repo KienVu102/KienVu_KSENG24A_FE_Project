@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/lesson-manager.css">
+    <title>Quản lý bài học</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td rowspan="2">
+                <div class="container">
+                    <div class="sidebar">
+                        <div class="prj-sections">
+                            <div class="prj">
+                                <img src="../assets/images/📚.png" alt="Book" class="book">
+                                <div class="content-prj">
+                                    <p
+                                        style="font-weight: 600; font-size: 14px; margin: 0; width: 168px; height: 24px;">
+                                        Study Tracker</p>
+                                    <p
+                                        style="color: #84919A; font-weight: 400; font-size: 12px; margin: 0; width: 168px; height: 16px;">
+                                        Quản lý tiến độ học tập</p>
+                                </div>
+                            </div>
+                            <div class="sections">
+                                <a href="../pages/dashboard.html">
+                                    <span class="sec-1"><img src="../assets/icons/Trending up.png" alt="" class="sec">
+                                        <p
+                                            style="font-family: Inter; font-weight: 400; font-size: 14px; line-height: 24px; letter-spacing: -0.6%; margin: 0;">
+                                            Thống kê các môn học</p>
+                                    </span>
+                                </a>
+                                <a href="../pages/subject-manager.html">
+                                    <span class="sec-2">
+                                        <img src="../assets/icons/Notebookgray.png" alt="" class="sec">
+                                        <p
+                                            style="font-family: Inter; font-weight: 400; font-size: 14px; line-height: 24px; letter-spacing: -0.6%; margin: 0;">
+                                            Quản lý môn học</p>
+                                    </span>
+                                </a>
+                                <a href="../pages/lesson-manager.html">
+                                    <span class="sec-3"><img src="../assets/icons/Document duplicate (1).png" alt=""
+                                            class="sec">
+                                        <p
+                                            style="font-family: Inter; font-weight: 400; font-size: 14px; line-height: 24px; letter-spacing: -0.6%; margin: 0; color: #0E73F6; font-weight: bold;">
+                                            Quản lý bài học</p>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="frame-head">
+                <div class="main-content">
+                    <div class="header">
+                        <div class="icon-left">
+                            <img src="../assets/icons/Icon button.png" alt="" class="icon-1">
+                        </div>
+                        <div class="icon-right">
+                            <img src="../assets/icons/Icon button (1).png" alt="" class="icon">
+                            <img src="../assets/icons/Icon button (2).png" alt="" class="icon">
+                            <img src="../assets/icons/Icon button (3).png" alt="" class="icon">
+                            <div>
+                                <img src="../assets/images/65.jpg" alt="" class="avt">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="frame-body">
+                <div class="table-container">
+                    <div class="frame-1">
+                        <h2 style="font-size: 24px; font-weight: bold;">Bài học</h2>
+                        <div class="frame-1-left">
+                            <select id="statusSearch" class="form-select">
+                                <option value="all" selected>Lọc theo trạng thái</option>
+                                <option value="complete">Đã hoàn thành</option>
+                                <option value="uncomplete">Chưa hoàn thành</option>
+                            </select>
+                            <button type="button" class="frame-1-left btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Thêm mới bài học</button>
+                        </div>
+                    </div>
+                    <div class="frame-2">
+                        <input type="search" id="search" placeholder="🔍 Tìm kiếm bài học theo tên" class="search">
+                    </div>
+                </div>
+                <table class="table-lessons">
+                    <thead>
+                        <tr>
+                            <th class="th-1" style="width: 60px;">
+                                <input type="checkbox" name="" id=""
+                                    style="width: 16px; height: 16px; margin: 14px 20px;">
+                            </th>
+                            <th class="th-2" style="width: 441px; cursor: pointer;" onclick="sortLessonsByName()">
+                                <p style="padding: 13px 24px 0;">Tên bài học <span id="sortNameIcon">⬇</span></p>
+                            </th>
+                            <th class="th-3" style="width: 214px;">
+                                <p style="padding: 13px 24px 0;">Thời gian học ⬇</p>
+                            </th>
+                            <th class="th-4" style="width: 235px;">Trạng thái</th>
+                            <th class="th-5" style="width: 162px;">Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lessonsTableBody"></tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Modal Thêm/Chỉnh sửa -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="height: 500px;">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm mới bài học</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="categoryForm">
+                        <div class="mb-3">
+                            <label for="listLesson" class="form-label">Loại môn học</label><br>
+                            <select name="listLesson" id="listLesson" class="form-select" required>
+                                <option value="" selected disabled>Chọn loại môn học</option>
+                                <option value="Nhập môn lập trình với Scratch">Nhập môn lập trình với Scratch</option>
+                                <option value="Lập trình cơ bản C">Lập trình cơ bản C</option>
+                                <option value="Lập trình FrontEnd cơ bản">Lập trình FrontEnd cơ bản</option>
+                            </select>
+                            <div class="invalid-feedback">Vui lòng chọn loại môn học</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nameLesson" class="form-label">Tên bài học</label><br>
+                            <input type="text" class="form-control" id="nameLesson" required>
+                            <div id="nameLessonError" class="invalid-feedback">Tên bài học không được để trống</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="timeLesson" class="form-label">Thời gian học</label><br>
+                            <select name="timeLesson" id="timeLesson" class="form-select" required>
+                                <option value="" selected disabled>Chọn thời gian học</option>
+                                <option value="45">45</option>
+                                <option value="60">60</option>
+                                <option value="90">90</option>
+                                <option value="120">120</option>
+                            </select>
+                            <div id="timeLessonError" class="invalid-feedback">Thời gian môn học không được để trống
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="statusLesson" class="form-label">Trạng thái</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="statusLesson" id="statusActive"
+                                    value="Đã hoàn thành" checked>
+                                <label class="form-check-label" for="statusActive">Đã hoàn thành</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="statusLesson" id="statusInactive"
+                                    value="Chưa hoàn thành">
+                                <label class="form-check-label" for="statusInactive">Chưa hoàn thành</label>
+                            </div>
+                        </div>
+                        <div class="form-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                            <button type="button" class="btn btn-primary" id="saveCategory">Thêm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Xóa -->
+    <div class="modal" tabindex="-1" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 500px; height: 268px;">
+                <div class="modal-header" style="border-bottom: none;">
+                    <h5 class="modal-title"><img src="../assets/icons/Featured icon.png" alt=""
+                            style="width: 48px; height: 48px;"><br> Xác nhận</h5>
+                </div>
+                <div class="modal-body" id="deleteModalLabel">
+                    Bạn có chắc chắn muốn xóa bài học khỏi hệ thống không?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-primary" id="deleteLesson"
+                        style="background-color: #D92D20; border-color: #D92D20;">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Thông báo Xóa -->
+    <div style="background-color: #333E5A;" class="toast" id="toastNoti" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-header">
+            <img src="../assets/icons/check_circle.png" class="rounded me-2" alt="...">
+            <strong class="me-auto" style="font-size: 18px; color: white;">Thành công</strong>
+            <button style="border-radius: 999px;" type="button" class="btn-close" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+        <div class="toast-body" style="font-size: 12px; padding: 0; margin: 12px 48px 18px; color: white;">
+            Xóa bài học thành công
+        </div>
+    </div>
+
+    <!-- Toast Thông báo Cập nhật -->
+    <div style="background-color: #333E5A;" class="toast" id="toastNotiChange" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-header">
+            <img src="../assets/icons/check_circle.png" class="rounded me-2" alt="...">
+            <strong class="me-auto" style="font-size: 18px; color: white;">Thành công</strong>
+            <button style="border-radius: 999px;" type="button" class="btn-close" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+        <div class="toast-body" style="font-size: 12px; padding: 0; margin: 12px 48px 18px; color: white;">
+            Cập nhật bài học thành công
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="../js/lesson-manager.js"></script>
+</body>
+
+</html>
