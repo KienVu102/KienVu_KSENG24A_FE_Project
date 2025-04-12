@@ -210,6 +210,12 @@ a:hover::after {
     font-weight: 600; 
     color: #1D252D; 
     height: 44px; 
+    border-bottom: 1px solid gray;
+}
+
+.table-lessons td {
+    border-bottom: 1px solid gray;
+
 }
 
 .table-lessons td:nth-child(1) { 
@@ -291,10 +297,7 @@ li.page-item.active {
     height: 18px;
 }
 
-.gap-3 {
-    display: flex;
-    justify-content: space-around;
-}
+
 
 .toast .btn-close {
     background-image: url(../assets/icons/Vector.png);
