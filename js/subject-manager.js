@@ -21,7 +21,6 @@ function generateId() {
     return randomNum;
 }
 
-// Dữ liệu ban đầu sử dụng generateId()
 let listSubjects = JSON.parse(localStorage.getItem('subjects')) || [
     { id: generateId(), name: "Lập trình C", status: true },
     { id: generateId(), name: "Lập trình Fronted và JS", status: false },
