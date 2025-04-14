@@ -170,21 +170,29 @@ saveCategoryButton.addEventListener('click', () => {
     } else {
         listLessons.push(newLesson);
         toastNotiChange.show();
-    }
 
-    saveLessonsToLocalStorage();
-    renderListLessons();
-    bootstrap.Modal.getInstance(exampleModal).hide();
-    resetForm();
+
+        saveLessonsToLocalStorage();
+        renderListLessons();
+        bootstrap.Modal.getInstance(exampleModal).hide();
+        resetForm();
+    }
 });
 
 window.deleteLesson = function (id) {
-    const lessonToDelete = listLessons.find(lesson => lesson.id === id);
+    const lessonId = Number(id);
+    const lessonToDelete = listLessons.find(lesson => lesson.id === lessonId);
+
+    if (!lessonToDelete) {
+        console.error(`Lesson with id ${lessonId} not found.`);
+        return;
+    }
+
     document.getElementById('deleteModalLabel').textContent =
         `Bạn có chắc muốn xóa bài học "${lessonToDelete.name}" khỏi hệ thống?`;
 
     document.getElementById('deleteLesson').onclick = () => {
-        listLessons = listLessons.filter(lesson => lesson.id !== id);
+        listLessons = listLessons.filter(lesson => lesson.id !== lessonId);
         saveLessonsToLocalStorage();
         renderListLessons();
         deleteModal.hide();
