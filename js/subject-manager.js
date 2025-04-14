@@ -106,11 +106,11 @@ function sortSubjects() {
     const sortIcon = document.getElementById('sortIcon');
     sortIcon.textContent = isAscending ? '⬇' : '⬆';
 
-    let subjects = [...listSubjects];
-    for (let i = 0; i < subjects.length - 1; i++) {
-        for (let j = 0; j < subjects.length - 1 - i; j++) {
-            const nameA = subjects[j].name.toLowerCase();
-            const nameB = subjects[j + 1].name.toLowerCase();
+    const n = listSubjects.length;
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = 0; j < n - 1 - i; j++) {
+            const nameA = listSubjects[j].name.toLowerCase();
+            const nameB = listSubjects[j + 1].name.toLowerCase();
             let shouldSwap;
             if (isAscending) {
                 shouldSwap = nameA.localeCompare(nameB) > 0;
@@ -118,16 +118,17 @@ function sortSubjects() {
                 shouldSwap = nameB.localeCompare(nameA) > 0;
             }
             if (shouldSwap) {
-                let temp = subjects[j];
-                subjects[j] = subjects[j + 1];
-                subjects[j + 1] = temp;
+                let temp = listSubjects[j];
+                listSubjects[j] = listSubjects[j + 1];
+                listSubjects[j + 1] = temp;
             }
         }
     }
-    listSubjects = subjects;
+
     saveSubjectsToLocalStorage();
     renderListSubjects();
 }
+
 
 searchInput.addEventListener('input', (e) => {
     searchKeyword = e.target.value;
