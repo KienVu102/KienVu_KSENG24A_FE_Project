@@ -56,8 +56,8 @@ function renderListSubjects() {
             </td>
             <td>
                 <div class="d-flex gap-3">
-                <i style="color: #e63946; cursor: pointer;" class="bi bi-trash3" onclick="deleteCategory('${value.id}')"></i>
-                <i style="color: #ffa500; cursor: pointer;" class="bi bi-pencil-square" onclick="openEditModal('${value.id}')"></i>
+                <i style="color: #e63946; cursor: pointer;" class="bi bi-trash3" onclick="deleteCategory(${value.id})"></i>
+                <i style="color: #ffa500; cursor: pointer;" class="bi bi-pencil-square" onclick="openEditModal(${value.id})"></i>
                 </div>
             </td>
         </tr>`;
@@ -183,11 +183,9 @@ saveCategoryButton.addEventListener('click', (e) => {
 });
 
 window.deleteCategory = function (id) {
-    const subjectId = Number(id);
-    const subjectToDelete = listSubjects.find(sub => sub.id === subjectId);
-
+    const subjectToDelete = listSubjects.find(sub => sub.id === Number(id));
     if (!subjectToDelete) {
-        console.error(`Subject with id ${subjectId} not found.`);
+        console.error(`Subject with id ${id} not found`);
         return;
     }
 
@@ -195,7 +193,7 @@ window.deleteCategory = function (id) {
         `Bạn có chắc muốn xóa môn học "${subjectToDelete.name}" khỏi hệ thống?`;
 
     document.getElementById('deleteSubject').onclick = () => {
-        listSubjects = listSubjects.filter(sub => sub.id !== subjectId);
+        listSubjects = listSubjects.filter(sub => sub.id !== Number(id));
         saveSubjectsToLocalStorage();
         renderListSubjects();
         deleteModal.hide();
@@ -206,11 +204,14 @@ window.deleteCategory = function (id) {
 };
 
 window.openEditModal = function (id) {
-    const subject = listSubjects.find(sub => sub.id === id);
-    if (!subject) return;
+    const subject = listSubjects.find(sub => sub.id === Number(id));
+    if (!subject) {
+        console.error(`Subject with id ${id} not found`);
+        return;
+    }
 
     isEditMode = true;
-    currentEditId = id;
+    currentEditId = Number(id);
     nameSubjectsInput.value = subject.name;
     document.querySelector(`input[name="status"][value="${subject.status ? 'Đang hoạt động' : 'Không hoạt động'}"]`).checked = true;
 
